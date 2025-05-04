@@ -1,7 +1,25 @@
-"builds": [
-  {
-    "src": "app/main.py",
-    "use": "@vercel/python",
-    "config": { "runtime": "python3.9" }
-  }
-]
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.12"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/main.py"
+    }
+  ],
+  "excludeFiles": [
+    "**/*.pyc",
+    "**/__pycache__/**",
+    ".env",
+    ".git/**",
+    ".venv/**"
+  ]
+}
